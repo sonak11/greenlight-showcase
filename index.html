@@ -1,0 +1,191 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Greenlight</title>
+<meta name="description" content="Hands-off, carbon-aware delivery on GitLab Duo: open an issue, walk away, it ships and tells you what it cost the planet.">
+<meta name="greenlight-sha" content="f9fcd02">
+<style>
+:root{--bg:#0b1310;--bg2:#0f1a16;--card:#13211b;--card2:#182a22;--ink:#e8f3ee;--mute:#93ab9f;--dim:#5f786c;
+--green:#3ddc84;--green2:#1fa463;--amber:#f5b942;--red:#ff6b6b;--line:#223a30;--r:14px}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+-webkit-font-smoothing:antialiased}
+a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+nav{position:sticky;top:0;z-index:5;background:rgba(11,19,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:56px}
+.logo{font-weight:800;letter-spacing:-.02em;color:var(--ink);display:flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+nav .links{margin-left:auto;display:flex;gap:18px;font-size:14px}nav .links a{color:var(--mute)}nav .links a:hover{color:var(--ink)}
+header{padding:72px 0 40px;background:radial-gradient(900px 400px at 15% -10%,rgba(61,220,132,.16),transparent 60%),
+radial-gradient(700px 300px at 100% 0,rgba(31,164,99,.12),transparent 60%)}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:var(--green);border:1px solid var(--line);
+background:var(--bg2);padding:4px 12px;border-radius:99px}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.05;letter-spacing:-.03em;margin:18px 0 16px;max-width:880px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--green),#9ef0c4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:clamp(17px,2.2vw,20px);color:var(--mute);max-width:720px;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:600;font-size:15px}
+.btn.p{background:var(--green);color:#06210f}.btn.s{border:1px solid var(--line);color:var(--ink);background:var(--bg2)}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.live{font-size:13px;color:var(--mute);display:inline-flex;gap:8px;align-items:center}
+.live code{color:var(--ink);background:var(--card);padding:2px 8px;border-radius:6px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+.kicker{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 8px}
+h2{font-size:clamp(26px,3.6vw,36px);letter-spacing:-.02em;line-height:1.15;margin:0 0 12px}
+.intro{color:var(--mute);max-width:720px;margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.k .v{font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.v.g{color:var(--green)}
+.k .l{color:var(--mute);font-size:13px}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.lane{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.lane h3{margin:0 0 4px;font-size:16px}.lane .who{font-size:12px;color:var(--dim);margin-bottom:12px}
+.steps{list-style:none;margin:0;padding:0;position:relative}
+.steps li{position:relative;padding:0 0 14px 28px;font-size:14.5px}.steps li:last-child{padding-bottom:0}
+.steps li:before{content:"";position:absolute;left:6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--green);
+box-shadow:0 0 0 4px rgba(61,220,132,.15)}
+.steps li:after{content:"";position:absolute;left:10px;top:20px;bottom:-2px;width:2px;background:var(--line)}.steps li:last-child:after{display:none}
+.steps b{display:block}.steps span{color:var(--mute);font-size:13.5px}
+.lane.heal li:before{background:var(--amber);box-shadow:0 0 0 4px rgba(245,185,66,.15)}
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.mode{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.mode.on{border-color:var(--green);background:linear-gradient(180deg,rgba(61,220,132,.10),var(--card))}
+.mode .tag{float:right}.mode h3{margin:0 0 6px;font-size:17px}.mode p{margin:0;color:var(--mute);font-size:14px}
+.tag{font-size:12px;padding:2px 9px;border-radius:99px;background:var(--line);color:var(--ink);white-space:nowrap}
+.tag.g{background:rgba(61,220,132,.18);color:var(--green)}
+.callout{margin-top:16px;padding:14px 16px;border-radius:12px;background:var(--bg2);border:1px dashed var(--line);color:var(--mute);font-size:14px}
+.callout b{color:var(--ink)}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+.term{background:#07100c;border:1px solid var(--line);border-radius:var(--r);padding:16px;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;
+color:#bfe9d1;overflow-x:auto;white-space:pre}.term .r{color:var(--red)}.term .a{color:var(--amber)}.term .g{color:var(--green)}.term .d{color:var(--dim)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}tr:last-child td{border-bottom:0}
+th{color:var(--mute);font-weight:500;font-size:13px;background:var(--bg2)}td.n,th.n{text-align:right}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:3px;min-width:60px}
+.bar i{display:block;height:100%;background:var(--green)}
+.note{color:var(--mute);font-size:13px;margin:0 0 12px}
+.formula{font:600 clamp(18px,2.6vw,24px)/1.4 ui-monospace,Menlo,monospace;background:var(--card);border:1px solid var(--line);
+border-radius:var(--r);padding:20px;text-align:center;margin-bottom:16px}
+.defs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.defs div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;font-size:14px;color:var(--mute)}
+.defs b{color:var(--green);font-size:20px;display:block;font-family:ui-monospace,Menlo,monospace}
+footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--dim);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+@media(max-width:760px){nav .links{display:none}.split{grid-template-columns:1fr}.hide{display:none}header{padding-top:48px}
+th,td{padding:10px 8px}}
+@media(prefers-reduced-motion:reduce){.dot{animation:none}html{scroll-behavior:auto}}
+</style></head><body>
+<nav><div class="wrap"><a class="logo" href="#"><span class="dot"></span>Greenlight</a>
+<div class="links"><a href="#how">How it works</a><a href="#gate">Carbon gate</a><a href="#heal">Self-healing</a>
+<a href="#receipts">Receipts</a><a href="#method">Method</a><a href="https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43781938/showcase">GitLab ↗</a></div></div></nav>
+
+<header><div class="wrap">
+<span class="eyebrow">● Hands-off agent · GitLab Duo Agent Platform</span>
+<h1>Open an issue. Walk away.<br><em>It ships, and tells you what it cost the planet.</em></h1>
+<p class="lede">Greenlight is an autonomous delivery system. Duo agents plan, write, review and ship the change.
+The pipeline sizes itself to the carbon intensity of the grid, never skips security, heals its own failures,
+deploys, and posts a Software Carbon Intensity receipt on the issue.</p>
+<div class="cta"><a class="btn p" href="#receipts">See live receipts</a><a class="btn s" href="https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43781938/showcase/-/pipelines">Watch the pipelines ↗</a>
+<span class="live"><span class="dot"></span>Live · serving <code>f9fcd02</code> · data: live</span></div>
+</div></header>
+
+<section style="border-top:0;padding-top:8px"><div class="wrap"><div class="grid">
+<div class="k"><div class="v">2</div><div class="l">changes shipped autonomously</div></div>
+<div class="k"><div class="v">0.85 g</div><div class="l">avg SCI · gCO₂e per change</div></div>
+<div class="k"><div class="v g">48%</div><div class="l">less carbon per change</div></div>
+<div class="k"><div class="v g">1.6 g</div><div class="l">CO₂e avoided vs naive pipeline</div></div>
+<div class="k"><div class="v g">15.7</div><div class="l">CI minutes saved</div></div>
+</div></div></section>
+
+<section id="how"><div class="wrap">
+<p class="kicker">How it works</p><h2>From issue to production, with nobody in the middle</h2>
+<p class="intro">Creating an issue triggers the Autopilot flow. From there, agents and the pipeline hand off to each
+other until the change is live and measured. A human sets the intent; that is the only step.</p>
+<div class="flow">
+<div class="lane"><h3>1 · Autopilot agents</h3><div class="who">Duo flow · 4 agents</div><ol class="steps">
+<li><b>Triage</b><span>Reads the issue and AGENTS.md, posts a plan, or escalates to a human.</span></li>
+<li><b>Implement</b><span>Smallest correct change, plus a test the carbon gate can map.</span></li>
+<li><b>Green review</b><span>Hunts security bugs and energy waste, fixes them in place.</span></li>
+<li><b>Ship</b><span>Branch, merge request with <code>Closes #N</code>, autopilot label.</span></li></ol></div>
+<div class="lane"><h3>2 · Verify &amp; secure</h3><div class="who">GitLab CI/CD</div><ol class="steps">
+<li><b>Carbon gate</b><span>Reads the grid and the diff, generates a right-sized child pipeline.</span></li>
+<li><b>Tests</b><span>Only impacted tests on a dirty grid; the full suite waits for a green window.</span></li>
+<li><b>SAST + secret detection</b><span>Every change, every time.</span></li>
+<li><b>Security gate</b><span>Blocks High and Critical findings and any secret.</span></li></ol></div>
+<div class="lane"><h3>3 · Ship &amp; measure</h3><div class="who">GitLab CI/CD + Pages</div><ol class="steps">
+<li><b>Auto-merge</b><span>Merges itself the moment the pipeline is green.</span></li>
+<li><b>Staging</b><span>Builds the site once and smoke-tests that exact artifact.</span></li>
+<li><b>Production</b><span>Publishes to Pages and waits until the new commit is really live.</span></li>
+<li><b>Receipt</b><span>SCI per change posted on the merge request and the issue.</span></li></ol></div>
+<div class="lane heal"><h3>↺ When something breaks</h3><div class="who">Duo flow · 2 agents + pipeline</div><ol class="steps">
+<li><b>Summon the Fixer</b><span>A failed merge request pipeline mentions the Fixer flow.</span></li>
+<li><b>Diagnose &amp; fix</b><span>Reads failing jobs and scan findings, pushes a minimal fix.</span></li>
+<li><b>Rollback</b><span>If production verification fails, revert on main and redeploy.</span></li>
+<li><b>Incident</b><span>A nightly probe opens an issue, and the Autopilot takes it.</span></li></ol></div>
+</div></div></section>
+
+<section id="gate"><div class="wrap">
+<p class="kicker">The carbon gate</p><h2>The pipeline decides how much work a change deserves</h2>
+<p class="intro">Agents iterate, and every push used to run everything. Greenlight reads the live grid intensity where the
+runners are and the files that changed, then generates only the pipeline that change needs.</p>
+<div class="modes">
+<div class="mode"><span class="tag">docs</span><h3>Docs only</h3><p>No tests run. Secret detection still does.</p></div>
+<div class="mode on"><span class="tag g">lean</span><h3>Dirty grid</h3><p>Above 300 gCO₂e/kWh: only tests mapped from the changed modules. Full suite and dependency scan wait for the nightly green window.</p></div>
+<div class="mode"><span class="tag">full</span><h3>Green grid, main, or urgent</h3><p>Everything runs. Production never ships on a partial run, and <code>priority::urgent</code> bypasses deferral.</p></div>
+</div>
+<div class="callout"><b>Right now:</b> the CI grid (us-east1) is at <b>560 gCO₂e/kWh</b>, so merge request pipelines run <b>lean</b>.
+<b>Security is never traded for carbon:</b> SAST and secret detection run on every pipeline.</div>
+</div></section>
+
+<section id="heal"><div class="wrap"><div class="split">
+<div><p class="kicker">Self-healing</p><h2>Bad code arrives. It ships fixed.</h2>
+<p class="intro">We push a change with user input going straight into a shell. Nobody intervenes.</p>
+<ol class="steps">
+<li><b>SAST flags it</b><span>Semgrep finds the command injection.</span></li>
+<li><b>The security gate blocks the merge</b><span>Auto-merge never fires.</span></li>
+<li><b>The pipeline summons the Fixer</b><span>A comment on the merge request mentions the Fixer flow.</span></li>
+<li><b>The Fixer patches and pushes</b><span>Removes the shell call, validates input, keeps the tests green.</span></li>
+<li><b>Re-verified, merged, deployed</b><span>Same gates, same receipt, no human.</span></li></ol></div>
+<div class="term"><span class="d">$ merge request !2 · real run, 06:37 → 06:44 UTC</span>
+<span class="g">✓</span> carbon-gate   mode=lean: grid at 560 g/kWh
+<span class="g">✓</span> semgrep-sast  1 finding (shell=True on caller input)
+<span class="r">✗ security-gate</span> High: OS Command Injection at app/diagnostics.py:7
+<span class="a">→ summon-fixer</span>  @ai-greenlight-fixer …
+<span class="d">  Fixer: caller input reached a shell string</span>
+<span class="g">✓</span> fix(greenlight): avoid shell in reachable() to resolve OS command injection
+<span class="d">$ new pipeline</span>
+<span class="g">✓</span> security-gate  no blocking findings
+<span class="g">✓</span> autopilot-merge → pages → verify-production
+<span class="g">✓</span> receipt posted on the issue</div>
+</div></div></section>
+
+<section id="receipts"><div class="wrap">
+<p class="kicker">Receipts</p><h2>Every change, priced in grams</h2>
+<p class="intro">Each row is a change that went to production through Greenlight, measured from real job durations in the GitLab API.</p>
+<div class="tbl"><table><thead><tr><th>Change</th><th class="hide">Mode</th><th class="n">SCI (g)</th><th class="n hide">Naive (g)</th><th>Saved</th></tr></thead>
+<tbody><tr><td>Add connectivity check for status page<br><span class='tag'>783c859c</span></td><td class='hide'><span class='tag'>full</span></td><td class='n'>0.87</td><td class='n hide'>1.66</td><td><div class='bar'><i style='width:48%'></i></div>48%</td></tr><tr><td>Add CI-minutes card; validate receipts and cache dev-server loads<br><span class='tag'>a745d778</span></td><td class='hide'><span class='tag'>full</span></td><td class='n'>0.83</td><td class='n hide'>1.62</td><td><div class='bar'><i style='width:49%'></i></div>49%</td></tr></tbody></table></div>
+<h2 style="font-size:22px;margin-top:28px">Projected yearly savings at scale</h2>
+<p class="note">Measured average savings per change above, &times; 5 changes per developer per week &times; 48 weeks.
+CI minutes priced at $0.01 (GitLab hosted-runner list price).</p>
+<div class="tbl"><table><thead><tr><th></th><th class="n">CO₂e avoided</th><th class="n">Energy</th><th class="n">CI hours</th><th class="n">Compute $</th></tr></thead>
+<tbody><tr><td>Team of 50</td><td class='n'>9.5 kg</td><td class='n'>14 kWh</td><td class='n'>1,567 h</td><td class='n'>$940</td></tr><tr><td>Org of 1,000</td><td class='n'>190.0 kg</td><td class='n'>279 kWh</td><td class='n'>31,333 h</td><td class='n'>$18,800</td></tr></tbody></table></div>
+</div></section>
+
+<section id="method"><div class="wrap">
+<p class="kicker">Method</p><h2>Measured with the Software Carbon Intensity spec</h2>
+<p class="intro">Green Software Foundation SCI (ISO/IEC 21031:2024), with Cloud Carbon Footprint coefficients. Every receipt
+embeds its raw numbers, so anyone can recompute it.</p>
+<div class="formula">SCI = ((E × I) + M) per R</div>
+<div class="defs">
+<div><b>E</b>Energy of every CI job that touched the change, from real durations: 2 vCPU, 8 GB runner, PUE 1.1.</div>
+<div><b>I</b>Grid intensity where the runners are, live from Electricity Maps or the published regional average.</div>
+<div><b>M</b>Embodied hardware emissions, amortised over 4 years and scaled by time and vCPU share.</div>
+<div><b>R</b>One change shipped to production. Baseline: the same change through a run-everything pipeline.</div>
+</div>
+<div class="callout"><b>Served sustainably:</b> this page is a static GitLab Pages site, rendered once per deploy. No always-on server, zero compute per visit.</div>
+</div></section>
+
+<footer><div class="wrap"><span>🟢 Greenlight · GitLab Transcend Hackathon 2026 · MIT licensed</span><span>Mirror of the GitLab Pages site, which was archived (read-only) at the submission deadline. Same code and the same two real receipts.</span>
+<span><a href="https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43781938/showcase">Source</a> · <a href="https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43781938/showcase/-/pipelines">Pipelines</a> · <a href="https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43781938/showcase/-/merge_requests?state=merged">Merged by agents</a> · <a href="api/receipts.json">Receipts JSON</a></span></div></footer>
+</body></html>

@@ -1,0 +1,61 @@
+{
+ "source": "live",
+ "receipts": [
+  {
+   "actual": {
+    "energy_kwh": 0.0012743985855113334,
+    "operational_g": 0.7136632078863467,
+    "embodied_g": 0.15295834165715372,
+    "total_g": 0.8666215495435005,
+    "sci_g_per_change": 0.8666215495435005,
+    "job_seconds": 514.527388
+   },
+   "baseline": {
+    "energy_kwh": 0.0024385102521780003,
+    "operational_g": 1.3655657412196802,
+    "embodied_g": 0.2926796125856164,
+    "total_g": 1.6582453538052966,
+    "sci_g_per_change": 1.6582453538052966,
+    "job_seconds": 984.527388
+   },
+   "saved_g": 0.7916238042617961,
+   "saved_pct": 47.738641476980426,
+   "mr_iid": 2,
+   "title": "Add connectivity check for status page",
+   "sha": "783c859c",
+   "ci_region": "us-east1",
+   "grid_intensity": 560.0,
+   "intensity_source": "static",
+   "jobs": 27,
+   "plan_mode": "full"
+  },
+  {
+   "actual": {
+    "energy_kwh": 0.001220512069469,
+    "operational_g": 0.68348675890264,
+    "embodied_g": 0.14649066959189497,
+    "total_g": 0.8299774284945349,
+    "sci_g_per_change": 0.8299774284945349,
+    "job_seconds": 492.77117400000003
+   },
+   "baseline": {
+    "energy_kwh": 0.002384623736135667,
+    "operational_g": 1.3353892922359736,
+    "embodied_g": 0.2862119405203577,
+    "total_g": 1.6216012327563312,
+    "sci_g_per_change": 1.6216012327563312,
+    "job_seconds": 962.771174
+   },
+   "saved_g": 0.7916238042617962,
+   "saved_pct": 48.817415050692,
+   "mr_iid": 1,
+   "title": "Add CI-minutes card; validate receipts and cache dev-server loads",
+   "sha": "a745d778",
+   "ci_region": "us-east1",
+   "grid_intensity": 560.0,
+   "intensity_source": "static",
+   "jobs": 26,
+   "plan_mode": "full"
+  }
+ ]
+}
